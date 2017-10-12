@@ -1,0 +1,23 @@
+<div *ngIf="movie">
+    <h2>{{movie.title}}</h2>
+    <b>Imdb Rating:</b>{{movie.rating}}/10<br/>
+    <b>Released Date:</b>{{movie.year}}
+    <div>
+      <label>
+        <b>Movie Summary:</b>
+      </label>
+      {{movie.summary}}
+    </div>
+  
+    <div>
+      <label>
+        <b>Movie Description:</b>
+      </label>
+      {{movie.description_full}}
+    </div>
+      <b>Download links:</b>
+      <div *ngFor="let torrent of movie.torrents" style="display:inline">
+          <a href="{{torrent.url}}"><label>{{torrent.quality}}</label></a>
+      </div>
+  <button (click)="goBack()">Back</button>
+</div>

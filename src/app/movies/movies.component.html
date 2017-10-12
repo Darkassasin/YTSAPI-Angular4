@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<ng-container *ngFor="let movie of movies; let i=index">
+  <h2>{{movie.title}}</h2>
+
+  <div class="row">
+    <div class=" col-md-2 containers">
+      <img src="{{movie.medium_cover_image}}" alt="Avatar" class="image">
+    <div class="middle">
+      <div class="text">
+        <span class="fa fa-star"></span>{{movie.rating}}/10
+        <br/>
+        <b>Released Date:</b>{{movie.year}}</div>
+    </div>
+  </div>
+  
+    <div class="col-md-10 pull-right">
+      <div class="desc">
+        <label>
+          <b>Movie Summary:</b>
+        </label>
+        {{movie.summary}}
+      </div>
+
+      <div class="desc">
+        <label>
+          <b>Movie Description:</b>
+        </label>
+        {{movie.description_full}}
+      </div>
+      <b>Download links:</b>
+      <div *ngFor="let torrent of movie.torrents" style="display:inline">
+        <a href="{{torrent.url}}">
+          <label>{{torrent.quality}}</label>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  </ng-container>
